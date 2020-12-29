@@ -1,11 +1,15 @@
-version: "3.9"
+version: "3"
 services:
   web:
-    build: .
-    ## image: emirozbir/redis-app:latest
+    build: # 
+      context: .
+      dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
+
     environment:
       REDIS_HOST: redis-alpine
+    volumes:
+      - .:/code
   redis-alpine:
     image: "redis:alpine"

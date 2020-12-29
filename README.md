@@ -26,3 +26,17 @@ curl --header "Content-Type: application/json" \
 ```
 
 ## docker-compose 
+File sync for development environment:
+```
+    volumes:
+      - .:/code
+```
+```
+docker-compose restart
+```
+
+## Docker Context:
+
+```
+head -c 1G </dev/urandom >myfile
+```
