@@ -3,11 +3,11 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/index")
+@app.route("/index", methods=["POST", "GET"])
 def index():
-    
+
     file_obj = open("/opt/file.json", "a+")
-    file_obj.append(request.json)
+    file_obj.write(str(request.json))
     file_obj.close()
     return jsonify({"hello": "{}".format(request.json)})
 

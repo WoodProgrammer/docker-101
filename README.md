@@ -1,6 +1,5 @@
 # CONTENTS:
 
-
 ## Build Phase 
 * Entrypoint
 * CMD
@@ -16,5 +15,14 @@ docker run -e HELLO_VAL
 ```
 ## VOLUME
 ```
-docker run -v $(pwd)/
+docker run -p 5000:5000 -v $(pwd)/data/:/opt/ volume-test:latest
 ```
+### Example Request:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"username":"xyz","password":"xyz"}' \
+  http://localhost:5000/index
+```
+
+## docker-compose 
